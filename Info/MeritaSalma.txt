@@ -1,0 +1,52 @@
+https://uk.godaddy.com/
+log in: 167252981
+password: Craftelia2018 (with capital C)
+
+https://www.smarterasp.net/
+user: Crafteliauk@gmail.com
+pass: craftelia2018
+
+https://craftelia.co.uk/
+User: dragangojkovoic84@gmail.com
+Pass: Craftelia2018
+
+Hi Merita,
+here are my findings:
+
+Aldough site appears few years old, it's design is clean and simple, which I believe is easy to use and that's very important.
+
+If your customers do not have any complaints ether, plus if it makes you money - than you don't need to worry to much.
+
+Switching to new, up-to-date system is always good, but you gotta weigh in pros and cons.
+
+It might be pricey and once you get it working you might not see any benefit (money-wise).
+
+But if you do make enough money now, it is good to invest and parallely build better system.
+
+As for the current work:
+
+I am a co-founder of a small software company, so we have plenty of knowledge in the industry and do with various clients (big and small).
+
+The goal is to adopt to a client and to make him satisfied with both product and price, so that's what I'm going for here :)
+The hourly rate is $25 and here is how is broken down:
+1 - Setting up code locally - 2h (this is most important part, if I cannot set it up locally, then there will be no charge but unfortunately also means we cannot do any work)
+
+This also includes backing up your original code for safe keeping in case something goes wrong
+
+(in case this is done, we can track changes easy, plus any future work won't use additional time)
+
+2 - Implementing additional options for Main image (delete, resize, rotate) - 2h
+
+3 - Implementing additional options for other images (resize, rotate) - 2h
+4 - Shop for gifts - is this going to be a section like 'Shop by Category' but only display gifts? - if yes that would take 1h
+
+5 - Newest goods on craftelia - assuming this would display new items (for example automatically show items that are added in last 7days or whatever we decide) - 1h
+
+6 - All categories make with photo limit for example 9 pcs. - best thing here would be to implement a paging this would certainly speed up loading plus it would look nicer - and it would need at least an 1hour per grid,
+
+but make it an hour, so Featured product 1h; Show for gifts - 1h; Newest goods on craftelia - 1h = 3h (but lets make it 2h)
+Summary:
+
+items: 1-3: 6h x $25 = $150
+
+items: 4-6: 4h

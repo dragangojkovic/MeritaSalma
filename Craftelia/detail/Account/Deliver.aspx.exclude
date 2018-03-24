@@ -1,0 +1,239 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Deliver.aspx.cs" Inherits="Order_Deliver" %>
+
+
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-8 col-md-offset-2">
+                <div style="text-align:right" runat="server" visible="true">
+ <asp:LinkButton ID="LinkButton2" runat="server" CssClass="text-color" Font-Size="12px" CausesValidation="False" Visible="false">Contact</asp:LinkButton> 
+                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="text-danger" Font-Size="12px" data-toggle="modal" data-target="#myModal1" CausesValidation="False">Request Cancellation</asp:LinkButton> 
+</div>  
+ <div class="sctn__hdr">   <h3>              
+      <asp:Label ID="Label1" runat="server" Text="Order Status"></asp:Label>
+
+     <small style="float:right" runat="server" visible="false">
+          <asp:LinkButton ID="Button4" runat="server" CssClass="btn icon-btn btn-danger" Font-Size="10px" data-toggle="modal" data-target="#myModal"><span class="glyphicon btn-glyphicon glyphicon-export img-circle text-danger"></span>Request Modification</asp:LinkButton>  
+ &nbsp;
+<asp:LinkButton ID="Button2" runat="server" CssClass="btn icon-btn btn-success" Font-Size="10px" Visible="True"><span class="glyphicon btn-glyphicon glyphicon-ok img-circle text-success"></span>Accept Delivery</asp:LinkButton>
+        
+     </small>
+         </h3>
+          
+ </div>
+                   
+                    
+
+                  <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1">
+                      <ItemTemplate>
+  <div class="form">
+       <div class="row" style="text-align:center;">
+                 <div class="col-md-3">   <h4> Order ID: <br />
+                       <asp:Label ID="Label9" runat="server" Text='<%# Eval("OrderNo") %>' Font-Bold="True" /> </h4>
+                     <hr class="hidden-lg"/>
+                 </div>
+                   <div class="col-md-3"> Order Date: <br /> <asp:Label ID="ServiceDeliveryDaysLabel" runat="server" Text='<%# Eval("OrderDate") %>' Font-Bold="True" />  <hr class="hidden-lg"/></div>
+                 
+           <div class="col-md-3"> Amount: <br />  $<asp:Label ID="BudgetForTheServiceLabel" runat="server" Text='<%# Eval("Amount" , "{0:n}" ) %>' Font-Bold="True" /> </div>
+                  </div>
+            <hr /> 
+      <div class="row">
+          <div class="col-md-2" style="text-align:center;">
+ 
+                             <asp:Label ID="Label1" runat="server" Text='<%# Eval("BuyerUserName") %>' />
+          </div>
+          <div class="col-md-10">
+<asp:Label ID="Label4" runat="server" Text="Requirment: " Font-Bold="True" ForeColor="Gray" Font-Size="X-Small"></asp:Label> 
+       <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Requirement") %>' /> 
+          </div>
+      </div>
+         
+    
+  
+      <hr />
+      <div class="row">
+          <div class="col-md-2" style="text-align:center;">
+               
+               <asp:Label ID="Label2" runat="server" Text='<%# Eval("SellerUserName") %>' />
+          </div>
+           <div class="col-md-10"> <asp:Label ID="Label3" runat="server" Text="Service Details: " Font-Bold="True" ForeColor="Gray" Font-Size="X-Small"></asp:Label> <br />
+<%--  <asp:Image ID="Image1" runat="server" Height="50px" Width="50px" ImageAlign="AbsMiddle" ImageUrl='<%# Eval("ServiceImage") %>' />--%>
+                   <asp:LinkButton ID="LinkButton4" Text='<%# Eval("ProductName") %>' runat="server" Enabled="True"></asp:LinkButton></div>
+      </div>
+      
+                             
+     
+
+ 
+      </div>
+                      </ItemTemplate>
+                  </asp:ListView>
+
+
+
+     <br />
+          
+            
+              <asp:ListView ID="ListView2" runat="server" DataSourceID="SqlDataSource23" OnItemDataBound="ListView2_ItemDataBound" OnItemCommand="ListView2_ItemCommand">
+                
+                  <EmptyDataTemplate>
+                    <div class="alert alert-warning">
+Awaiting Delivery
+                    </div>
+                  </EmptyDataTemplate>
+                  
+                    <ItemTemplate>
+<div class="form-div" style="background-color:white; padding:10px;">
+             <div class="sctn__hdr">   <h3>              
+      <asp:Label ID="Label6" runat="server" Text="Delivery"></asp:Label>
+
+  <asp:LinkButton ID="Button2" runat="server" CssClass="btn icon-btn btn-info pull-right" CommandName="contact" Font-Size="10px" Visible="True"><span class="glyphicon btn-glyphicon glyphicon-envelope img-circle text-info"></span>Contact</asp:LinkButton>
+
+                  <asp:LinkButton ID="Button4" runat="server" CssClass="btn icon-btn btn-danger pull-right" Font-Size="10px" data-toggle="modal" data-target="#myModal" CommandName="Modify" Visible="False"><span class="glyphicon btn-glyphicon glyphicon-export img-circle text-danger"></span>Request Modification</asp:LinkButton>  
+  <asp:LinkButton ID="Button3" runat="server" CssClass="btn icon-btn btn-success pull-right" Font-Size="10px" CommandName="Accept"><span class="glyphicon btn-glyphicon glyphicon-ok img-circle text-success"></span>Accept Delivery</asp:LinkButton> 
+                                       </h3>
+
+             </div>
+             
+
+                      <div class="row">
+                          <div class="col-md-8">
+                         <asp:Label ID="Label11" runat="server" Font-Bold="True" ForeColor="Gray" Font-Size="X-Small" Text='<%# Eval("username") %>'></asp:Label>   
+                              <br />  <asp:Label ID="Label5" runat="server" Text='<%# Eval("Message") %>'></asp:Label>
+                              
+                               <asp:Label ID="Label10" runat="server" Text='<%# Eval("DeliveryId") %>' Visible="False"></asp:Label>
+                              
+                               
+                          
+                          </div>
+                           <div class="col-md-4" style="text-align:center;">
+                               <%--<asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("Attachment") %>'></asp:LinkButton>--%>
+  
+                               <br /> <asp:Label ID="Label7" runat="server" Text='<%# Eval("ActionStatus") %>' Visible="false"></asp:Label> 
+                              <br />
+                               <br />
+                              
+
+                                   <asp:LinkButton ID="lnkDownload" class="btn icon-btn btn-default" CommandArgument = '<%# Eval("Attachment") %>' runat="server" OnClick = "DownloadFile"> <span class="glyphicon btn-glyphicon glyphicon-save img-circle text-muted"></span> Download Attachment</asp:LinkButton>
+                                   
+                           </div>
+                      </div>
+                     
+                    
+                    <hr />
+ </div>
+                        <br />
+                  </ItemTemplate>
+              </asp:ListView>
+         
+       <div id="seller" runat="server" visible="false">
+           <div class="alert alert-info">
+<asp:Label ID="Label13" runat="server" Text="Write Details for the buyer to review or track the items. Upload any relevant attachments for the buyer to track their item."></asp:Label>
+           </div>
+              <div class="form">  
+                 
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Required" ControlToValidate="TextBox1" CssClass="text text-danger" ValidationGroup="del"></asp:RequiredFieldValidator>
+                   <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine"></asp:TextBox>
+                 <asp:FileUpload ID="FileUpload1" runat="server" />
+                   <br /><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Required" ControlToValidate="FileUpload1" CssClass="text text-danger" ValidationGroup="del"></asp:RequiredFieldValidator>
+               
+                  <asp:Button ID="Button1" runat="server" Text="Deliver Item" OnClick="Button1_Click" ValidationGroup="del" />
+          </div>
+          </div> 
+                  
+                  
+                     
+
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-sm">
+							<div class="modal-content" style="background:#fff; color:white; text-align:center; padding:0px 30px;"><button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: #000000">
+										&times;</button>
+							<br />	
+                               
+								<div class="modal-body">
+								<div class="btn-color"><div class="modal-header">
+									<h3 class="modal-title" id="myModalLabel" style="font-weight:bold;">
+										Request Modification</h3>
+								</div></div>
+                             <div id="buyer" runat="server" visible="false">
+              <div class="form">
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Required" ControlToValidate="TextBox1" CssClass="text text-danger" ValidationGroup="buy"></asp:RequiredFieldValidator>
+                   <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine"></asp:TextBox>
+                 <asp:FileUpload ID="FileUpload2" runat="server" />
+                   <br /><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Required" ControlToValidate="FileUpload1" CssClass="text text-danger" ValidationGroup="buy"></asp:RequiredFieldValidator>
+               
+                  <asp:Button ID="Button5" runat="server" Text="Request Modification"  ValidationGroup="buy" OnClick="Button5_Click" CssClass="pull-right" />
+          </div>
+          </div>  
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+                  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-sm">
+							<div class="modal-content" style="background:#fff; color:white; text-align:center; padding:0px 30px;"><button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: #000000">
+										&times;</button>
+							<br />	
+                               
+								<div class="modal-body" style="min-height:350px">
+								
+                             
+              <div class="form">
+                  <h4><asp:Label ID="Label12" runat="server" Text="Reason of Cancellation" ForeColor="#333333"></asp:Label></h4>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="  Reason of Cancellation is Required" ControlToValidate="TextBox1" CssClass="text text-danger" ValidationGroup="cancel"></asp:RequiredFieldValidator>
+                   <asp:TextBox ID="TextBox3" runat="server" TextMode="MultiLine"></asp:TextBox>
+             
+                  <asp:Button ID="Button6" runat="server" Text="Request Cancellation"  ValidationGroup="cancel"  CssClass="pull-right" OnClick="Button6_Click" />
+          </div>
+         
+
+								</div>
+							</div>
+						</div>
+					</div>
+         <div runat="server" id="ordercompleted" visible="false">
+
+        
+                  <div id="complete" class="alert alert-success">
+                      <h1 style="text-align:center">ORDER COMPLETED</h1>
+                  </div>
+                  <br />
+           
+                   </div>
+                    
+                
+                  
+                     </div>
+          </div>
+              </div> 
+
+    <br />
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" ProviderName="<%$ ConnectionStrings:DefaultConnection.ProviderName %>" SelectCommand="SELECT AspNetUsers_1.UserName AS BuyerUserName, dbo.[Order].OrderNo, dbo.[Order].OrderDate, dbo.[Order].Amount, dbo.[Order].Status, dbo.[Order].Requirement, Profile_1.UserName AS SellerUserName, dbo.Products.ProductName, dbo.[Order].Quantity, dbo.[Order].Quantity * dbo.[Order].Amount AS TotalAmount FROM dbo.[Order] INNER JOIN dbo.AspNetUsers ON dbo.[Order].SellerId = dbo.AspNetUsers.Id INNER JOIN dbo.AspNetUsers AS AspNetUsers_1 ON dbo.[Order].BuyerId = AspNetUsers_1.Id INNER JOIN dbo.Profile ON AspNetUsers_1.UserName = dbo.Profile.UserName INNER JOIN dbo.Profile AS Profile_1 ON dbo.AspNetUsers.UserName = Profile_1.UserName INNER JOIN dbo.Products ON dbo.[Order].ProductKey = dbo.Products.ProductKey WHERE (dbo.AspNetUsers.UserName = @UserName) AND (dbo.[Order].Status &lt;&gt; N'Pending') AND (dbo.[Order].Status LIKE '%' + @status + '%') AND (dbo.[Order].OrderNo = @OrderNo)">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="HiddenField1" Name="UserName" PropertyName="Value" />
+            <asp:QueryStringParameter DefaultValue="Order" Name="status" QueryStringField="Status" />
+            <asp:QueryStringParameter Name="OrderNo" QueryStringField="OrderNo" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    
+       <asp:HiddenField ID="HiddenField1" runat="server" />
+
+      <asp:SqlDataSource ID="SqlDataSource23" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" InsertCommand="INSERT INTO Delivery(OrderNo, Attachment, Message, DeliveryDate, Status, UserName, Type, ActionDate, ActionStatus) VALUES (@OrderNo, @Attachment, @Message, GETDATE(), @Status, @UserName, @Type, GETDATE(), @ActionStatus)" ProviderName="<%$ ConnectionStrings:DefaultConnection.ProviderName %>" SelectCommand="SELECT OrderNo, Attachment, Message, DeliveryDate, Status, UserName, Type, ActionDate, ActionStatus, DeliveryId FROM Delivery WHERE (OrderNo = @OrderNo)" UpdateCommand="UPDATE Delivery SET ActionDate = GETDATE(), ActionStatus = @ActionStatus WHERE (DeliveryId = @DeliveryID)">
+          <InsertParameters>
+              <asp:QueryStringParameter Name="OrderNo" QueryStringField="OrderNo" />
+              <asp:ControlParameter ControlID="HiddenField1" DefaultValue="" Name="UserName" PropertyName="Value" />
+          </InsertParameters>
+          <SelectParameters>
+              <asp:QueryStringParameter Name="OrderNo" QueryStringField="OrderNo" />
+          </SelectParameters>
+      </asp:SqlDataSource>
+
+      <asp:HiddenField ID="HiddenField2" runat="server" />
+
+</asp:Content>
+

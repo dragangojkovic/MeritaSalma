@@ -1,0 +1,308 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+
+<%@ Register Src="~/usercontrol/logo.ascx" TagPrefix="uc1" TagName="logo" %>
+<%@ Register Src="~/usercontrol/social.ascx" TagPrefix="uc1" TagName="social" %>
+<%@ Register Src="~/usercontrol/laguage.ascx" TagPrefix="uc1" TagName="laguage" %>
+<%@ Register Src="~/usercontrol/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+<%@ Register Src="~/uccart/TotalCart.ascx" TagPrefix="uc1" TagName="TotalCart" %>
+<%@ Register Src="~/ucheader/headerinbox.ascx" TagPrefix="uc1" TagName="headerinbox" %>
+<%@ Register Src="~/ucheader/searchbar.ascx" TagPrefix="uc2" TagName="searchbar" %>
+<%@ Register Src="~/ucheader/menu.ascx" TagPrefix="uc1" TagName="menu" %>
+<%@ Register Src="~/usercontrol/SellerApproval.ascx" TagPrefix="uc1" TagName="SellerApproval" %>
+<%@ Register Src="~/ucheader/OfferNotifications.ascx" TagPrefix="uc1" TagName="OfferNotifications" %>
+<%@ Register Src="~/usercontrol/UserLocked.ascx" TagPrefix="uc1" TagName="UserLocked" %>
+<%@ Register Src="~/usercontrol/linksheader.ascx" TagPrefix="uc1" TagName="linksheader" %>
+<%@ Register Src="~/ucheader/UserBalance.ascx" TagPrefix="uc1" TagName="UserBalance" %>
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+
+    <!--Start of Zendesk Chat Script-->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <%-- <title><%: Page.Title %> - Total Healthcare Solution</title>--%>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx style css xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="Content/style.css" rel="stylesheet" />
+    <link href="Content/slider.css" rel="stylesheet" />
+    <link href="Content/style1.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+
+
+    <%-----------------------------------------------------------------------%>
+
+
+
+     <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx Thumbnail slider xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+    <link href="thumbnailslider/thumbnail-slider.css" rel="stylesheet" />
+    <script src="thumbnailslider/thumbnail-slider.js"></script>
+
+
+
+    <%-----------------------------------------------------------------------%>
+
+
+
+    <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx favicon icon xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <%-----------------------------------------------------------------------%>
+
+
+    <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx Font-style xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+    <%-----------------------------------------------------------------------%>
+
+  <script type="text/javascript">
+      function capitalize(textboxid, str) {
+          // string with alteast one character
+          if (str && str.length >= 1) {
+              var firstChar = str.charAt(0);
+              var remainingStr = str.slice(1);
+              str = firstChar.toUpperCase() + remainingStr;
+          }
+          document.getElementById(textboxid).value = str;
+      }
+  </script>
+
+    <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx icon-css xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+
+    <link href="icons/css/font-awesome.css" rel="stylesheet" />
+    <link href="icons/css/font-awesome.min.css" rel="stylesheet" />
+
+    <%-----------------------------------------------------------------------%>
+
+
+     <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx--Start of Zendesk Chat Script xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+<script type="text/javascript">
+    window.$zopim || (function (d, s) {
+        var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+        d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+            z.set.
+            _.push(o)
+        }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
+        $.src = "https://v2.zopim.com/?4kSn0H41JGwLhXjCXvWRLtAW6DsUVaU4"; z.t = +new Date; $.
+        type = "text/javascript"; e.parentNode.insertBefore($, e)
+    })(document, "script");
+</script>
+<!-------------------------End of Zendesk Chat Script---------------------------------------------------------------->
+
+     <%--xxxxxxxxxxxxxxxxxxxxxxxxxxxx Google Analytics xxxxxxxxxxxxxxxxxxxxxxxxxxxx--%>
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-111238846-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-111238846-1');
+</script>
+
+
+      <%-----------------------------------------------------------------------%>
+    
+    
+    <%--share social media links
+   --%> 
+  <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5919ba29ba33c30011148ddf&product=inline-share-buttons"></script>
+
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="header">
+
+
+            
+
+            <div class="container">
+                <div class="sub-header">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="row">
+                               
+                                <div class="col-md-10 col-xs-12">
+                                    <uc1:logo runat="server" ID="logo" />
+                                 </div>
+
+                            </div>
+
+
+
+
+
+                        </div>
+
+
+                        <uc2:searchbar runat="server" ID="searchbar" />
+
+                        <div class="col-md-6" style="text-align: right;">
+                          <div style="margin-top:28px" class="visible-lg"></div>
+                            <div class="row"> <br />
+                               
+                                <uc1:headerinbox runat="server" ID="headerinbox" />
+                            
+                                <uc1:menu runat="server" ID="menu" />
+                                
+
+                                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                                    <AnonymousTemplate>
+<div class="col-md-5 col-xs-5 nopadding" style="color:white">
+ 
+ <i class="fa fa-user-o"  aria-hidden="true"></i> 
+                                        <asp:LinkButton ID="LinkButton3" runat="server" PostBackUrl="~/Account/Login.aspx" CausesValidation="False">Login</asp:LinkButton>
+                                        /
+                                        <asp:LinkButton ID="LinkButton4" runat="server" PostBackUrl="~/Account/Register.aspx" CausesValidation="False">Sign up</asp:LinkButton>
+
+</div>
+                                       
+                                    </AnonymousTemplate>
+                                    <LoggedInTemplate>
+                              
+                                  
+                                       <div class="col-md-4 center">
+
+                                      
+ <uc1:UserBalance runat="server" ID="UserBalance" /> </div>
+                                  
+                                           
+                                    </LoggedInTemplate>
+                                </asp:LoginView>
+  <uc1:TotalCart runat="server" ID="TotalCart" />
+                                  
+
+
+                           
+ </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+            
+            <%--<div class="navbar navbar-inverse">
+                <div class="container">
+
+                  
+                
+                    <div class="row">
+                        <div class="col-md-2 col-xs-12 pull-right">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <div class="visible-xs" style="margin-top: 10px;"></div>
+                                <uc1:laguage runat="server" ID="laguage" />
+                                <uc1:UserLocked runat="server" ID="UserLocked" />
+                            </div>
+                        </div>
+
+                        <div class="col-md-10 col-xs-12" style="padding: 0px;">
+
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav  navbar-right">
+                               <uc1:linksheader runat="server" ID="linksheader" />
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>--%>
+        </div>
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        
+           
+        </div>  <br /><footer>
+            <div class="container">
+
+        <br />
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <uc1:Footer runat="server" ID="Footer" />
+              
+                      </div>
+                </div>
+             
+                 <div class="col-md-3">
+                  <h5>
+                      Payment Methods
+                     </h5>
+                     <asp:Image ID="Image1" runat="server" CssClass="img-responsive" ImageUrl="~/images/payment.png" />      <br />
+                     <h5>
+                         Join us on
+                     </h5>
+                     <uc1:social runat="server" ID="social" />
+                 
+                    
+                 </div>
+
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" ProviderName="<%$ ConnectionStrings:DefaultConnection.ProviderName %>" SelectCommand="SELECT MetaTitle, MetaKey, MetaDescription FROM SeoMeta" UpdateCommand="UPDATE SeoMeta SET MetaTitle = @Title, MetaKey = @Key , MetaDescription = @Description">
+                                       <UpdateParameters>
+                                           <asp:ControlParameter ControlID="TextBox1" Name="Title" PropertyName="Text" />
+                                           <asp:ControlParameter ControlID="TextBox2" Name="Key" PropertyName="Text" />
+                                           <asp:ControlParameter ControlID="TextBox3" Name="Description" PropertyName="Text" />
+                                       </UpdateParameters>
+                                   </asp:SqlDataSource>
+
+            </div>
+                
+            <h5 style="text-align:center;">
+
+         
+                <small>&copy; <%: DateTime.Now.Year %> - Craftelia Buy & Sell</small>   </h5>
+               </div> </footer>
+    </form>
+</body>
+</html>

@@ -1,0 +1,314 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminSite.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Admin Panel</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href='https://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+    <%--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--%>
+
+    <link href="Admin/css/bootstrap.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+   <%-- <script type="text/javascript" src="../tinymce/jscripts/tiny_mce/tiny_mce.js"></script>--%>
+    <link href="Admin/css/style.css" rel="stylesheet" />
+    <link href="icons/css/font-awesome.css" rel="stylesheet" />
+    <link href="icons/css/font-awesome.min.css" rel="stylesheet" />
+    <%-- <script type="text/javascript" src="../../tinymce/jscripts/tiny_mce/tiny_mce.js"></script>--%>
+    <script src="https://craftelia.co.uk/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+
+     <script type="text/javascript">
+         tinyMCE.init({
+             mode: "textareas",
+             theme: "advanced",
+             plugins: "safari,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,imagemanager,filemanager",
+             theme_advanced_buttons1: "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+             theme_advanced_buttons2: "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+             theme_advanced_buttons3: "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
+             theme_advanced_buttons4: "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,blockquote,pagebreak,|,insertfile,insertimage",
+             theme_advanced_toolbar_location: "top",
+             theme_advanced_toolbar_align: "left",
+             theme_advanced_statusbar_location: "bottom",
+             theme_advanced_resizing: false,
+             template_external_list_url: "js/template_list.js",
+             external_link_list_url: "js/link_list.js",
+             external_image_list_url: "js/image_list.js",
+             media_external_list_url: "js/media_list.js"
+         });
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    <div class="page-container">
+        <form runat="server">
+            <asp:ScriptManager runat="server">
+                <Scripts>
+                    <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                    <%--Framework Scripts--%>
+                    <asp:ScriptReference Name="MsAjaxBundle" />
+                    <asp:ScriptReference Name="jquery" />
+                    <asp:ScriptReference Name="bootstrap" />
+                    <asp:ScriptReference Name="respond" />
+                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                    <asp:ScriptReference Name="WebFormsBundle" />
+                    <%--Site Scripts--%>
+                </Scripts>
+            </asp:ScriptManager>
+
+            <div class="sidebar-menu">
+                <header class="logo1">
+                    <a href="#" class="sidebar-icon"><span class="fa fa-bars"></span></a>
+                </header>
+                <div style="border-top: 1px ridge rgba(255, 255, 255, 0.15)"></div>
+                <div class="menu">
+                    <ul id="menu">
+                        <li><a href="~/Admin/Admin-Dashboard.aspx" runat="server"><i class="fa fa-tachometer"></i><span>Dashboard</span><div class="clearfix"></div>
+                        </a></li>
+                        <li><a href="#"><i class="fa fa-snowflake-o" aria-hidden="true"></i><span style="margin-right:42px;">Configuration</span> <span class="fa fa-angle-right"></span>
+                            <div class="clearfix"></div>
+                        </a>
+                            <ul>
+                               
+                                <li><a href="~/Admin/configration/logo.aspx" runat="server">Add Website Logo
+                                </a></li>
+                                  <li><a href="~/Admin/configration/AddMenuType.aspx" runat="server">Add Footer Category
+                                </a></li>
+                                <li><a href="~/Admin/configration/Add-pages.aspx" runat="server">Add Page
+                                </a></li>
+                                <li><a href="~/Admin/configration/Add-page-detail.aspx" runat="server">Add Page Details
+                                </a></li>
+
+                                <li><a href="~/Admin/configration/Slider.aspx" runat="server">Add Slider/Banners
+                                </a></li>
+
+                                <li><a href="~/Admin/configration/socialmedia.aspx" runat="server">Add Social Media
+                                </a></li>
+
+                                 <li><a href="~/Admin/configration/addcountry.aspx" runat="server">Add Country
+                                </a></li>
+
+                              <%--   <li><a href="~/Admin/configration/addcity.aspx" runat="server">Add City
+                                </a></li>--%>
+
+                                <li><a href="~/Admin/configration/EmailSetup.aspx" runat="server">Email Setup
+                                </a></li>
+                                <li><a href="~/Admin/configration/meta.aspx" runat="server">Add SEO Meta Tags
+                                </a></li>
+
+                                 <li><a href="~/Admin/configration/advertisment.aspx" runat="server">Advertisement Setup
+                                </a></li>
+                                    <li><a href="~/Admin/configration/websitecommission.aspx" runat="server">Website Commission
+                                </a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#"><i class="fa fa-user-o" aria-hidden="true"></i><span style="margin-right:40px;">Profile Setup</span> <span class="fa fa-angle-right"></span>
+                            <div class="clearfix"></div>
+                        </a>
+                            <ul>
+                               
+                                <li><a href="~/Admin/profile-setup/shipping.aspx" runat="server">Shipping/Delivery
+                                </a></li>
+                                <li><a href="~/Admin/profile-setup/payment.aspx" runat="server">Payment Method
+                                </a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="#"><i class="fa fa-diamond" aria-hidden="true"></i><span style="margin-right:30px;">Product Setup</span> <span class="fa fa-angle-right"></span>
+                            <div class="clearfix"></div>
+                        </a>
+                            <ul>
+
+                                <li><a href="~/Admin/product-setup/Add-Category.aspx" runat="server">Category
+                                </a></li>
+                                <li><a href="~/Admin/product-setup/All-category.aspx" runat="server">All Category
+                                </a></li>
+                                <%--  <li><a href="~/Admin/product-setup/Featuredcategory.aspx" runat="server">Featured Category
+                                </a></li>--%>
+                                <li><a href="~/Admin/product-setup/Add-sub-category.aspx" runat="server">Sub Category
+                                </a></li>
+                                <%-- <li><a href="~/Admin/product-setup/Sales-type.aspx" runat="server">Sales Type
+                                </a></li>--%>
+                                   <li><a href="~/Admin/product-setup/condition.aspx" runat="server">Condition 
+                                </a></li>
+                                  <%-- <li><a href="~/Admin/product-setup/bodyparts.aspx" runat="server">Body Parts
+                                </a></li>--%>  
+                                
+                              <%--   <li><a href="~/Admin/product-setup/Warranty.aspx" runat="server">Warranty
+                                </a></li>--%>
+                                  <%-- <li><a href="~/Admin/product-setup/size.aspx" runat="server">Size
+                                </a></li>--%>
+                              <%--   <li><a href="~/Admin/product-setup/color.aspx" runat="server">Color
+                                </a></li>--%>
+                                   <li><a href="~/Admin/product-setup/deliverability.aspx" runat="server">Deliverability
+                                </a></li>
+                                 <%--  <li><a href="~/Admin/product-setup/expectedtimeline.aspx" runat="server">Delivery Expected Time
+                                </a></li>--%>
+                           <li><a href="~/Admin/product-setup/Currency.aspx" runat="server">Currency
+                                </a></li>
+                               
+                            </ul>
+                        </li>
+
+                         <li><a href="~/Admin/vendor/AllVendor.aspx" runat="server"><i class="fa fa-address-card"></i><span>All Vendor</span><div class="clearfix"></div>
+                        </a></li>
+                         <li><a href="~/Admin/vendor/AllCustomer.aspx" runat="server"><i class="fa fa-list-alt"></i><span>Customers</span><div class="clearfix"></div>
+                        </a></li>
+                         <li><a href="~/Admin/product-setup/allproducts.aspx" runat="server"><i class="fa fa-product-hunt"></i><span>All Products</span><div class="clearfix"></div>
+                        </a></li>
+                         <li><a href="~/Admin/sales/Myorders.aspx" runat="server"><i class="fa fa-check-square"></i><span>All Sales</span><div class="clearfix"></div>
+                        </a></li>
+                        <%-- <li><a href="~/Admin/reports/AllQuotes.aspx" runat="server"><i class="fa fa-quote-right"></i><span>All Quotes</span><div class="clearfix"></div>
+                        </a></li>--%>
+                         <%--  <li><a href="~/Admin/reports/alljobs.aspx" runat="server"><i class="fa fa-briefcase"></i><span>All Jobs</span><div class="clearfix"></div>
+                        </a></li>--%>
+                        <%-- <li><a href="~/Admin/reports/AdminMasterReport.aspx" runat="server"><i class="fa fa-bar-chart" aria-hidden="true"></i><span>Summary Report</span>
+                            <div class="clearfix"></div>
+                        </a>
+                           
+                            </li>--%>
+
+                         <%--<li><a href="~/Admin/reports/AllAds.aspx" runat="server"><i class="fa fa-television" aria-hidden="true"></i><span>All Ad Request</span>
+                            <div class="clearfix"></div>
+                        </a>
+                           
+                            </li>--%>
+                         <li><a href="~/Admin/product-setup/ProductReviews.aspx" runat="server"><i class="fa fa-comment"></i><span>Product Reviews</span><div class="clearfix"></div>
+                        </a></li>
+                          <li><a href="~/Admin/reports/CommisssionStatus.aspx" runat="server"><i class="fa fa-money"></i><span>Commission Details</span><div class="clearfix"></div>
+                        </a></li>
+                        <li><a href="~/Admin/configration/SetupPayment.aspx" runat="server"><i class="fa fa-money"></i><span>Payment Setup</span><div class="clearfix"></div>
+                        </a></li>
+
+                       <%-- <li><a href="~/Admin/configration/costpermile.aspx" runat="server"><i class="fa fa-money"></i><span>Cost Per Mile</span><div class="clearfix"></div>
+                        </a></li>--%>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="left-content">
+                <div class="mother-grid-inner">
+                    <!--header start here-->
+
+                        <div class="header-main">
+                            <div class="row">
+                                <div class="col-md-8"> 
+                            <h1><a runat="server" href="~/Admin/Admin-Dashboard.aspx">ADMIN PANEL</a></h1>
+                        </div><asp:LoginView runat="server" ViewStateMode="Disabled">
+                            <AnonymousTemplate>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+   <div class="col-md-4" style="padding:0px;">
+  <br />
+        <a href="Default.aspx" target="_blank" runat="server" class="btn btn-success"> Preview Website </a>   <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" CssClass="btn btn-danger" />
+
+                                </div>
+                               <%-- <div class="col-md-2 col-xs-5" style="text-align:center; margin-bottom:5px;"> 
+                                     <br />
+                                       
+                                        </div>--%>
+                          
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                             
+                            </div>
+                            </div>
+                  
+
+                 
+
+
+                    <div class="body-content">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+
+
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+
+            <script>
+                var toggle = true;
+
+                $(".sidebar-icon").click(function () {
+                    if (toggle) {
+                        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                        $("#menu span").css({ "position": "absolute" });
+                    }
+                    else {
+                        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                        setTimeout(function () {
+                            $("#menu span").css({ "position": "relative" });
+                        }, 400);
+                    }
+
+                    toggle = !toggle;
+                });
+            </script>
+            <!--js -->
+            <script src="Admin//js/jquery.nicescroll.js"></script>
+            <script src="Admin/js/scripts.js"></script>
+            <!-- Bootstrap Core JavaScript -->
+            <script src="Admin/js/bootstrap.min.js"></script>
+
+            <!-- /Bootstrap Core JavaScript -->
+            <!-- morris JavaScript -->
+            <script src="Admin/js/raphael-min.js"></script>
+            <script src="Admin/js/morris.js"></script>
+            <script>
+                $(document).ready(function () {
+                    //BOX BUTTON SHOW AND CLOSE
+                    jQuery('.small-graph-box').hover(function () {
+                        jQuery(this).find('.box-button').fadeIn('fast');
+                    }, function () {
+                        jQuery(this).find('.box-button').fadeOut('fast');
+                    });
+                    jQuery('.small-graph-box .box-close').click(function () {
+                        jQuery(this).closest('.small-graph-box').fadeOut(200);
+                        return false;
+                    });
+
+                });
+            </script>
+
+
+
+
+
+
+            <%--  
+        <footer style="background:black; color:white; text-align:center; padding:10px;">
+                <p>&copy; <%: DateTime.Now.Year %> -</p>
+       </footer>  --%><div class="clearfix"></div>
+        </form>
+    </div>
+</body>
+</html>
