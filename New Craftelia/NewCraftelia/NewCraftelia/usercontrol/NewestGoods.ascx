@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="home11nov2017.ascx.cs" Inherits="usercontrol_home11nov2017" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="NewestGoods.ascx.cs" Inherits="usercontrol_NewestGoods" %>
 <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource3" OnItemCommand="ListView1_ItemCommand" OnItemDataBound="ListView1_ItemDataBound">
     <EmptyDataTemplate>
         <div class="alert alert-warning">
@@ -6,7 +6,7 @@
         </div>
     </EmptyDataTemplate>
     <ItemTemplate>
-        <div class="col-md-4" style="margin-bottom:20px; padding:5px; ">
+        <div class="col-md-3" style="margin-bottom:20px; padding:5px; ">
             <div class="s-product" style="background:white">
                 <h5 style="height:20px;">
                     <asp:Label ID="Label5" runat="server" Text='<%# Eval("SalesType") %>' Font-Size="10px" Visible="False"></asp:Label> <small class="pull-right">

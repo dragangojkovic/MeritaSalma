@@ -77,6 +77,7 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Search.aspx" />
     <Content Include="usercontrol\banner.ascx" />
     <Content Include="usercontrol\BreadCrumbDetail.ascx" />
     <Content Include="usercontrol\BreadCrumbSearch.ascx" />
@@ -102,11 +103,13 @@
     <Content Include="usercontrol\linksfooter.ascx" />
     <Content Include="usercontrol\linksheader.ascx" />
     <Content Include="usercontrol\logo.ascx" />
+    <Content Include="usercontrol\NewestGoods.ascx" />
     <Content Include="usercontrol\Paypal.ascx" />
     <Content Include="usercontrol\rating.ascx" />
     <Content Include="usercontrol\savelater.ascx" />
     <Content Include="usercontrol\SellerApproval.ascx" />
     <Content Include="usercontrol\SellerDetails.ascx" />
+    <Content Include="usercontrol\ShopForGifts.ascx" />
     <Content Include="usercontrol\social.ascx" />
     <Content Include="usercontrol\Stripe.ascx" />
     <Content Include="usercontrol\TopViewedProduct.ascx" />
@@ -118,6 +121,24 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="usercontrol\ShopForGifts.ascx.cs">
+      <DependentUpon>ShopForGifts.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="usercontrol\NewestGoods.ascx.cs">
+      <DependentUpon>NewestGoods.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <Compile Include="usercontrol\NewestGoods.ascx.designer.cs">
+      <DependentUpon>NewestGoods.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrol\ShopForGifts.ascx.designer.cs">
+      <DependentUpon>ShopForGifts.ascx</DependentUpon>
+    </Compile>
     <None Include="usercontrol\banner.ascx.cs">
       <DependentUpon>banner.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -5,16 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class usercontrol_home11nov2017 : System.Web.UI.UserControl
+public partial class usercontrol_NewestGoods : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        if(!IsPostBack)
+        if (!IsPostBack)
         {
-
             HiddenField1.Value = Page.User.Identity.Name;
-
         }
     }
 
@@ -24,25 +21,21 @@ public partial class usercontrol_home11nov2017 : System.Web.UI.UserControl
         string pid = ((Label)e.Item.FindControl("Label7")).Text;
         if (e.CommandName == "Details")
         {
-
             Response.RedirectToRoute("ServiceDetails", new { ID = id, PID = pid });
         }
 
         if (e.CommandName == "favorite")
         {
-
             if (Page.User.Identity.Name == "")
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "ShowPopup();", true);
             }
-
             else
             {
                 SqlDataSource4.InsertParameters.Add("UserName", Page.User.Identity.Name);
                 SqlDataSource4.InsertParameters.Add("ProductId", id);
                 SqlDataSource4.Insert();
                 ListView1.DataBind();
-
             }
         }
     }
@@ -63,28 +56,9 @@ public partial class usercontrol_home11nov2017 : System.Web.UI.UserControl
             Label enabledeal = ((Label)e.Item.FindControl("Label15"));
             Label demotime = ((Label)e.Item.FindControl("Label16"));
             Label demotime2 = ((Label)e.Item.FindControl("Label17"));
-
             Label expirylabel = ((Label)e.Item.FindControl("Label19"));
-
             Label offerepiry = ((Label)e.Item.FindControl("Label20"));
-
             Label bidexpired = ((Label)e.Item.FindControl("Label21"));
-            //EmailAddressLabel.Font.Italic = true;
-
-            //if (discountoffer.Text != "0")
-            //{
-
-            //    int prices = int.Parse(price.Text)/ (1- int.Parse(discountoffer.Text)/100);
-
-            //    //int calcper = prices / 100;
-
-            //    int actualprice = prices;
-
-
-            //    strikeprice.Text = actualprice.ToString();
-            //}
-
-
 
             if (favstatus.Text != "0")
             {
@@ -96,10 +70,6 @@ public partial class usercontrol_home11nov2017 : System.Web.UI.UserControl
             {
                 strikeprice.Visible = false;
                 percentsign.Visible = false;
-
-
-
-
             }
 
 
@@ -111,14 +81,12 @@ public partial class usercontrol_home11nov2017 : System.Web.UI.UserControl
             if (salestype.Text == "Offer-Deals" || salestype.Text == "Auction" || salestype.Text == "Tender")
             {
                 salestype.CssClass = "label label-danger";
-
                 enabledeal.Visible = true;
                 expirylabel.Visible = true;
                 offerepiry.Visible = true;
 
                 if (DateTime.Parse(expirylabel.Text) < DateTime.Now)
                 {
-
                     bidexpired.Visible = true;
                 }
             }
@@ -130,25 +98,19 @@ public partial class usercontrol_home11nov2017 : System.Web.UI.UserControl
 
                 if (price.Text == "0")
                 {
-
                     enabledeal.Text = "Demo";
                 }
 
                 else
                 {
-
                     enabledeal.Text = "Leasing";
                 }
             }
-
-
-
         }
     }
 
-
     protected void datapager_PreRender(object sender, EventArgs e)
     {
-        datapager.PageSize = 9;
+        datapager.PageSize = 12;
     }
 }

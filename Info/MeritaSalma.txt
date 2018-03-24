@@ -7,7 +7,7 @@ user: Crafteliauk@gmail.com
 pass: craftelia2018
 
 https://craftelia.co.uk/
-User: dragangojkovic84@gmail.com
+User: dragangojkovoic84@gmail.com
 Pass: Craftelia2018
 
 Filezilla:
