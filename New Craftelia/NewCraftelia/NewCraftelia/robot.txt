@@ -1,0 +1,7 @@
+﻿User-Agent: *
+Disallow: 
+
+User-Agent: Googlebot
+Allow: /craftelia.co.uk
+
+Sitemap: https://craftelia.co.uk/sitemap.xml

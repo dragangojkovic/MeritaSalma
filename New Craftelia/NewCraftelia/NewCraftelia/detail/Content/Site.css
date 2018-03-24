@@ -1,0 +1,46 @@
+﻿
+
+
+/*@media (min-width: 300px) and (max-width: 765) {
+
+    .language{
+    font-size: 15px;
+padding: 15px;
+}
+
+.language-btn{
+    height: 40px;
+padding: 15px;
+}
+
+}*/
+
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+    .body-content {
+        padding: 0;
+    }
+
+
+}
+
+
+
+/*.header{
+    background-color:#fff;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,0.06),0 4px 5px 0 rgba(0,0,0,0.06),0 1px 10px 0 rgba(0,0,0,0.08);
+}
+.language{
+    font-size: 12px;
+padding: 3px 6px;
+}
+
+.language-btn{
+    height: 25px;
+padding: 2px 7px;
+}*/

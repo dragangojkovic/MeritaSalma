@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ViewsInsert.ascx.cs" Inherits="usercontrol_ViewsInsert" %>
+<asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" InsertCommand="INSERT INTO BusinessViews(BusineessId, IP, VisitDate, UserName) VALUES (@BusinessId, @IP, GETDATE(), @UserName)" ProviderName="<%$ ConnectionStrings:DefaultConnection.ProviderName %>"></asp:SqlDataSource>

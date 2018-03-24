@@ -1,0 +1,148 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminSite.master" AutoEventWireup="true" CodeFile="Myorders.aspx.cs" Inherits="seller_Myorders" %>
+
+<%@ Register Src="~/uccart/shippingdetail.ascx" TagPrefix="uc1" TagName="shippingdetail" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+   
+              <div class="form-div" style="border:none;">   <h3>              
+      <asp:Label ID="Label1" runat="server" Text="My Orders"></asp:Label></h3></div> 
+
+                 
+                        
+                  <br />    
+                    
+                       <ul class="nav nav-pills" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active"  href="../sales/Myorders.aspx" >
+        <asp:Label ID="Label4" runat="server" Text="Active Orders" Font-Bold="True"></asp:Label></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="../sales/Myorders.aspx?status=Accept" >
+        <asp:Label ID="Label2" runat="server" Text="Completed Orders" Font-Bold="True"></asp:Label></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link"  href="../sales/Myorders.aspx?status=Cancelled"" >
+        <asp:Label ID="Label3" runat="server" Text="Cancelled Orders" Font-Bold="True"></asp:Label></a>
+  </li>
+
+</ul>
+
+           
+
+            
+
+
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="ListView1_ItemCommand">
+            <ItemTemplate>
+                
+           
+             
+                 <div class="form form-div">
+             <div class="row">
+                 <div class="col-md-3">   <h5> Order ID: <br />
+                     <small>
+
+                    <asp:Label ID="Label9" runat="server" Text='<%# Eval("OrderNo") %>' />   </small> </h5></div>
+                   <div class="col-md-3"> Order Date: <br />
+                       <small>
+
+                       <asp:Label ID="ServiceDeliveryDaysLabel" runat="server" Text='<%# Eval("OrderDate") %>' /> </small></div>
+                 <div class="col-md-3"> Order Status: <br />
+                       <small>
+
+                     <asp:Label ID="Label5" runat="server" Text='<%# Eval("Status") %>' />   </small></div>
+                 <div class="col-md-3">
+                     <br />
+  <asp:LinkButton ID="LinkButton2" runat="server" CommandName="Invoice" CssClass="btn-color">view Invoice</asp:LinkButton>
+                 </div>
+                 <div class="col-md-3" runat="server" visible="false"> <asp:Button ID="Button2" runat="server" Text="Contact" CommandName="contact" Font-Size="12px" CssClass="btn btn-success" /> &nbsp; <asp:Button ID="Button1" Font-Size="12px" runat="server" Text="Deliver" CommandName="deliver" CssClass="btn btn-warning" /> </div>
+             </div>
+             <hr />
+                     <div class="row">
+               
+              
+            <div class="col-md-1">
+  <asp:Image ID="Image2" runat="server" Height="70px" Width="100%" ImageAlign="Top" ImageUrl='<%# Eval("CoverImage") %>' />
+            </div>
+                
+                     
+                <div class="col-md-3">
+                    <br />
+              <p>
+
+            
+                   <asp:LinkButton ID="LinkButton1" Text='<%# Eval("ProductName") %>' runat="server" Enabled="True"></asp:LinkButton>
+             
+       
+              </p>
+
+
+
+    
+                </div>    
+             
+                   <div class="col-md-3"><h6>
+                 <small>
+                     Vendor Name : <asp:Label ID="Label1" runat="server" Text='<%# Eval("VendorName") %>' /> <br />
+                      Buyer Name : <asp:Label ID="Label15" runat="server" Text='<%# Eval("FullName") %>' /> 
+                   
+
+                 </small>
+                       <uc1:shippingdetail runat="server" ID="shippingdetail" />
+             </h6>    
+           
+                       </div>
+                  <div class="col-md-2"> <br />
+               <asp:Label ID="Label6" runat="server" Text="Price: " Font-Bold="True" ForeColor="Gray" Font-Size="X-Small"></asp:Label>  
+                     <asp:Label ID="Label14" runat="server" Text='<%# Eval("Currency" ) %>' /> <asp:Label ID="Label8" runat="server" Text='<%# Eval("Amount" , "{0:n}" ) %>' />
+             <div class="hidden-lg" style="padding:3px; border-bottom:1px solid #ccc; margin-bottom:10px;"></div>    </div>
+                   <div class="col-md-1"> <br />
+               <asp:Label ID="Label10" runat="server" Text="Qty: " Font-Bold="True" ForeColor="Gray" Font-Size="X-Small"></asp:Label>  
+                      <asp:Label ID="Label11" runat="server" Text='<%# Eval("Quantity" ) %>' />
+             <div class="hidden-lg" style="padding:3px; border-bottom:1px solid #ccc; margin-bottom:10px;"></div>    </div>
+                     <div class="col-md-2"> <br />
+               <asp:Label ID="Label12" runat="server" Text="Total: " Font-Bold="True" ForeColor="Gray" Font-Size="X-Small"></asp:Label>  
+                      <asp:Label ID="Label7" runat="server" Text='<%# Eval("Currency" ) %>' /><asp:Label ID="Label13" runat="server" Text='<%# Eval("TotalAmount" , "{0:n}" ) %>' />
+             <div class="hidden-lg" style="padding:3px; border-bottom:1px solid #ccc; margin-bottom:10px;"></div>    </div>
+                 
+                </div>
+             
+            </div>
+
+      
+            </ItemTemplate>
+        </asp:ListView>
+
+        
+
+         
+          <div style="text-align:center">    
+  <asp:DataPager ID="DataPager1" runat="server" PagedControlID="ListView1" PageSize="20">
+            <Fields>
+                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ButtonType="Button" 
+                    ShowFirstPageButton="True" ShowNextPageButton="False" 
+                    ShowPreviousPageButton="False" />
+                <asp:NumericPagerField ButtonCount="10" CurrentPageLabelCssClass="active" 
+                    NumericButtonCssClass="pagination" />
+                <asp:NextPreviousPagerField ButtonCssClass="btn btn-default" ButtonType="Button" 
+                    ShowLastPageButton="True" ShowNextPageButton="False" 
+                    ShowPreviousPageButton="False" />
+            </Fields>
+        </asp:DataPager>
+    
+</div>      
+
+
+
+
+       
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" ProviderName="<%$ ConnectionStrings:DefaultConnection.ProviderName %>" SelectCommand="SELECT AspNetUsers_1.UserName AS BuyerUserName, dbo.[Order].OrderNo, dbo.[Order].OrderDate, dbo.[Order].Amount, dbo.[Order].Status, dbo.[Order].Requirement, dbo.Products.CoverImage, dbo.Products.ProductName, dbo.Products.Currency, dbo.[Order].Quantity, dbo.[Order].Quantity * dbo.[Order].Amount AS TotalAmount, ISNULL(dbo.Delivery.ActionStatus, dbo.[Order].Status) AS Status, dbo.Profile.VendorName, dbo.[Order].OrderId, dbo.Customer.FullName FROM dbo.Profile INNER JOIN dbo.AspNetUsers AS AspNetUsers_1 ON dbo.Profile.UserName = AspNetUsers_1.UserName INNER JOIN dbo.[Order] INNER JOIN dbo.Products ON dbo.[Order].ProductKey = dbo.Products.ProductKey ON AspNetUsers_1.Id = dbo.[Order].SellerId INNER JOIN dbo.AspNetUsers ON dbo.[Order].BuyerId = dbo.AspNetUsers.Id INNER JOIN dbo.Customer ON dbo.AspNetUsers.UserName = dbo.Customer.UserName LEFT OUTER JOIN dbo.Delivery ON dbo.[Order].OrderNo = dbo.Delivery.OrderNo WHERE (dbo.[Order].Status &lt;&gt; N'Pending') AND (ISNULL(dbo.Delivery.ActionStatus, dbo.[Order].Status) LIKE N'%' + @status + N'%') ORDER BY dbo.[Order].OrderId DESC">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="HiddenField1" Name="UserName" PropertyName="Value" />
+            <asp:QueryStringParameter DefaultValue="Active" Name="status" QueryStringField="Status" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <asp:HiddenField ID="HiddenField1" runat="server" />
+</asp:Content>
+

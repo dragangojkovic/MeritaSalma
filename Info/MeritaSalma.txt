@@ -7,8 +7,14 @@ user: Crafteliauk@gmail.com
 pass: craftelia2018
 
 https://craftelia.co.uk/
-User: dragangojkovoic84@gmail.com
+User: dragangojkovic84@gmail.com
 Pass: Craftelia2018
+
+Filezilla:
+host: ftp.smarterasp.net
+port: 21
+user: dragangojkovic
+pass: Test123!
 
 Hi Merita,
 here are my findings:
