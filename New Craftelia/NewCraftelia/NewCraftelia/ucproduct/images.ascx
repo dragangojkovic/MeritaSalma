@@ -31,9 +31,27 @@
                         
                            
 
-                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductImagesId" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." Width="100%">
+                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductImagesId,Images" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." Width="100%">
                                      <Columns>
-                                         <asp:CommandField ShowDeleteButton="True" />
+                                         <%--<asp:CommandField ShowDeleteButton="True" />--%>
+										 <asp:TemplateField>
+											 <ItemTemplate>
+												<asp:LinkButton runat="server" ID="lnkDelete" CommandArgument='<%# Eval("ProductImagesId") %>' OnClick="lnkDelete_Click">Delete</asp:LinkButton>
+												 |
+												<asp:LinkButton runat="server" ID="lnkRotateLeft" CommandArgument='<%# Eval("Images") %>' OnClick="lnkRotateLeft_Click">Rotate left</asp:LinkButton>
+												 |
+												 <asp:LinkButton runat="server" ID="lnkRotateRight" CommandArgument='<%# Eval("Images") %>' OnClick="lnkRotateRight_Click">Rotate right</asp:LinkButton>
+												 |
+												 <asp:LinkButton runat="server" ID="lnkRotate180" CommandArgument='<%# Eval("Images") %>' OnClick="lnkRotate180_Click">Rotate 180</asp:LinkButton>
+												 <br />
+												 <div style="position:relative;">
+													<span style="float:left; padding-left: 1px;">Resize:</span><br />
+													<span style="float:left; padding: 10px;">Width:</span> <asp:TextBox runat="server" ID="txtResizeWidth" Width="50" Height="30"></asp:TextBox>
+													<span style="float:left; padding: 10px;">Height:</span><asp:TextBox runat="server" ID="txtResizeHeight" Width="50" Height="30"></asp:TextBox>
+													<span style="position:absolute; padding-left:30px; padding-top:10px;"><asp:LinkButton ID="lnkResize" runat="server" CommandArgument='<%# Eval("Images") %>' OnClick="lnkResize_Click">Apply</asp:LinkButton></span>
+												</div>
+											 </ItemTemplate>
+										 </asp:TemplateField>
                                          <asp:TemplateField HeaderText="Images" SortExpression="Images">
                                              <EditItemTemplate>
                                                  <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Images") %>'></asp:TextBox>

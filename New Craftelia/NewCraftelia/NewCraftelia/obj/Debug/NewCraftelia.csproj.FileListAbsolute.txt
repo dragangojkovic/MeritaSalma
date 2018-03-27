@@ -1,8 +1,0 @@
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\bin\NewCraftelia.dll.config
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\bin\NewCraftelia.dll
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\bin\NewCraftelia.pdb
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\obj\Debug\NewCraftelia.csproj.CoreCompileInputs.cache
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\obj\Debug\NewCraftelia.dll
-G:\Code\MeriataSalma\New Craftelia\NewCraftelia\NewCraftelia\obj\Debug\NewCraftelia.pdb
