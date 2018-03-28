@@ -31,7 +31,7 @@
                         
                            
 
-                                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductImagesId,Images" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." Width="100%">
+                                 <asp:GridView ID="GridView1" OnRowDataBound="GridView1_RowDataBound" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductImagesId,Images" DataSourceID="SqlDataSource1" EmptyDataText="There are no data records to display." Width="100%">
                                      <Columns>
                                          <%--<asp:CommandField ShowDeleteButton="True" />--%>
 										 <asp:TemplateField>
@@ -57,7 +57,8 @@
                                                  <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Images") %>'></asp:TextBox>
                                              </EditItemTemplate>
                                              <ItemTemplate>
-                                                 <asp:Image ID="Image1" runat="server" Height="75px" ImageUrl='<%# Eval("Images") %>' Width="75px" />
+												 <asp:HiddenField ID="hdnImageUrl" runat="server" Value='<%# Eval("Images")%>' />
+                                                 <asp:Image ID="Image1" runat="server" Height="75px" Width="75px" />
                                              </ItemTemplate>
                                          </asp:TemplateField>
                                      </Columns>

@@ -95,8 +95,7 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		var rotationType = RotateFlipType.Rotate180FlipNone;
 		RotateImage(sender, imageUrl, rotationType);
 	}
-
-
+	
 	private void RotateImage(object sender, string imageUrl, RotateFlipType rotationType)
 	{
 		if (imageUrl.Contains("?"))
@@ -115,12 +114,13 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		i.RotateFlip(rotationType);
 		i.Save(path);
 		i.Dispose();
+		imageUrl = imageUrl + "?" + DateTime.Now.Millisecond.ToString();
 		var image = ((sender as LinkButton).Parent.FindControl("Image1")) as System.Web.UI.WebControls.Image;
 		if (image != null)
 		{
-			image.Attributes.Add("ImageUrl", path);
+			image.Attributes.Add("ImageUrl", imageUrl);
 		}
-		imageUrl = imageUrl + "?" + DateTime.Now.Millisecond.ToString();
+		GridView1.DataBind();
 	}
 
 	protected void lnkResize_Click(object sender, EventArgs e)
@@ -129,7 +129,13 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		var txtResizeWidth = ((sender as LinkButton).Parent.FindControl("txtResizeWidth")) as System.Web.UI.WebControls.TextBox;
 		var imageUrl = (sender as LinkButton).CommandArgument;
 
-		string path = Server.MapPath(imageUrl);
+		string path = string.Empty;
+		List<string> pathItems = imageUrl.Split('?').ToList();
+		if (pathItems.Count > 0)
+		{
+			path = Server.MapPath(pathItems[0]);
+		}
+
 		System.Drawing.Image img = System.Drawing.Image.FromFile(path);
 
 		int width = int.Parse(txtResizeWidth.Text);
@@ -139,11 +145,13 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		img.Dispose();
 		resized.Save(path);// (path);
 		resized.Dispose();
+		imageUrl = imageUrl + "?" + DateTime.Now.Millisecond.ToString();
 		var image = ((sender as LinkButton).Parent.FindControl("Image1")) as System.Web.UI.WebControls.Image;
 		if (image != null)
 		{
 			image.Attributes.Add("ImageUrl", path);
 		}
+		GridView1.DataBind();
 	}
 
 	public static Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
@@ -170,4 +178,20 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		return destImage;
 	}
 
+
+	protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+	{
+		Random rnd = new Random();
+
+		if (e.Row.RowType == DataControlRowType.DataRow)
+		{
+			var hdnImageUrl = e.Row.FindControl("hdnImageUrl") as HiddenField;
+			var Image1 = e.Row.FindControl("Image1") as System.Web.UI.WebControls.Image;
+
+			if(hdnImageUrl != null && Image1 != null)
+			{
+				Image1.ImageUrl = string.Format("{0}?{1}", hdnImageUrl.Value, rnd.Next());
+			}
+		}
+	}
 }
