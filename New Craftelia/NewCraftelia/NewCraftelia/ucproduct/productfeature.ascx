@@ -49,11 +49,8 @@ holder.’’
        
     <div class="col-md-6">
         Cover Image:
-                                  <asp:FileUpload ID="FileUpload1" runat="server" />  <asp:Label ID="Label22" runat="server" ForeColor="Red">Suggested image dimension height = 600 &amp; width = 560</asp:Label>
-
-
-        <asp:Button ID="btnUpload" Text="Upload" runat="server" OnClick="Upload" Style="display: none" />
-
+		<asp:FileUpload ID="FileUpload1" runat="server" />  <asp:Label ID="Label22" runat="server" ForeColor="Red">Suggested image dimension height = 600 &amp; width = 560</asp:Label>
+		<asp:Button ID="btnUpload" Text="Upload" runat="server" OnClick="Upload" Style="display: none" />
         <script type="text/javascript">
             function UploadFile(fileUpload) {
                 if (fileUpload.value != '') {
@@ -61,13 +58,39 @@ holder.’’
                                         }
                                     }
         </script>
-
     </div>
     
 
     <div class="col-md-6 center">   
-        <asp:Image ID="Image1" runat="server" ImageUrl="~/DynamicImage/NoImage.jpg" Width="100px" Height="80px" CssClass="img" />
-        
+        <asp:Image ID="Image1" runat="server" ImageUrl="~/DynamicImage/NoImage.jpg" Width="100px" Height="80px" CssClass="img" /><br />
+		<asp:Panel ID="pnlResizeActions" runat="server" CssClass="center" style="padding-top: 10px;">
+			<div class="center">
+				<asp:LinkButton runat="server" ID="lnkDelete" OnClick="lnkDelete_Click">Delete |</asp:LinkButton>
+				<asp:LinkButton runat="server" ID="lnkRotateLeft" OnClick="lnkRotateLeft_Click">Rotate left |</asp:LinkButton>
+				<asp:LinkButton runat="server" ID="lnkRotateRight" OnClick="lnkRotateRight_Click">Rotate right |</asp:LinkButton>
+				<asp:LinkButton runat="server" ID="lnkRotate180" OnClick="lnkRotate180_Click">Rotate 180</asp:LinkButton>
+			</div>
+			<div class="row">
+				<div class="col-md-2" style="padding-top: 8px;">
+					<span>Resize:</span>
+				</div>
+				<div class="col-md-2 col-xs-6" style="padding-top: 8px;">
+					<span >Width:</span>
+				</div>
+				<div class="col-md-2 col-xs-6">
+					<asp:TextBox runat="server" ID="txtResizeWidth" Width="50" Height="25"></asp:TextBox>
+				</div>
+				<div class="col-md-2 col-xs-6" style="padding-top: 8px;">
+					 <span>Height:</span>
+				</div>
+				<div class="col-md-2 col-xs-6">
+					<asp:TextBox runat="server" ID="txtResizeHeight" Width="50" Height="25"></asp:TextBox>
+				</div>
+				<div class="col-md-2" style="padding-top: 8px;">
+					<span><asp:LinkButton runat="server" OnClick="lnkResize_Click">Apply</asp:LinkButton></span>
+				</div>
+			</div>
+		</asp:Panel>
     </div>
  </ContentTemplate>
 
@@ -77,9 +100,8 @@ holder.’’
     </asp:UpdatePanel>
     <div class="col-md-6">
         Product Name:
-                                  <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+		<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="This Field is Required" ValidationGroup="vendor" ControlToValidate="TextBox1" CssClass="required"></asp:RequiredFieldValidator>
-
     </div>
     <div class="col-md-6" runat="server" visible="false">
         Size/Volume/Capacity/Range:

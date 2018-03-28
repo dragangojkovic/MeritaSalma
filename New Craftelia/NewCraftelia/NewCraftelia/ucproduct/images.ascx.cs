@@ -134,12 +134,6 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		}
 	}
 
-	//private void ResizeImage(object sender, string imageUrl, RotateFlipType rotationType)
-	//{
-		
-
-	//}
-
 	public static Bitmap ResizeImage(System.Drawing.Image image, int width, int height)
 	{
 		var destRect = new Rectangle(0, 0, width, height);

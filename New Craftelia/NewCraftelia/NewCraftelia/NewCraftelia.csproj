@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="seller\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,6 +79,30 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Search.aspx" />
+    <Content Include="seller\addproduct.aspx" />
+    <Content Include="seller\addproductstep2.aspx" />
+    <Content Include="seller\addproductstep3.aspx" />
+    <Content Include="seller\addproductstep4.aspx" />
+    <Content Include="seller\addproductstep5.aspx" />
+    <Content Include="seller\AllAuctions.aspx" />
+    <Content Include="seller\alljobs.aspx" />
+    <Content Include="seller\allproducts.aspx" />
+    <Content Include="seller\BestSellingProducts.aspx" />
+    <Content Include="seller\BidsShow.aspx" />
+    <Content Include="seller\CommisssionStatus.aspx" />
+    <Content Include="seller\jobs.aspx" />
+    <Content Include="seller\moreimages.aspx" />
+    <Content Include="seller\Myorders.aspx" />
+    <Content Include="seller\ProductConfirmation.aspx" />
+    <Content Include="seller\profile.aspx" />
+    <Content Include="seller\viewprofile.aspx" />
+    <Content Include="seller\Withdraw.aspx" />
+    <Content Include="seller\WithdrawSuccess.aspx" />
+    <Content Include="ucproduct\Auction.ascx" />
+    <Content Include="ucproduct\catalog.ascx" />
+    <Content Include="ucproduct\images.ascx" />
+    <Content Include="ucproduct\productfeature.ascx" />
+    <Content Include="ucproduct\video.ascx" />
     <Content Include="usercontrol\banner.ascx" />
     <Content Include="usercontrol\BreadCrumbDetail.ascx" />
     <Content Include="usercontrol\BreadCrumbSearch.ascx" />
@@ -118,7 +143,9 @@
     <Content Include="usercontrol\UserLocked.ascx" />
     <Content Include="usercontrol\VerticalBanner.ascx" />
     <Content Include="usercontrol\ViewsInsert.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Search.aspx.cs">
@@ -131,6 +158,102 @@
     </None>
     <None Include="usercontrol\NewestGoods.ascx.cs">
       <DependentUpon>NewestGoods.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\addproduct.aspx.cs">
+      <DependentUpon>addproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\addproductstep2.aspx.cs">
+      <DependentUpon>addproductstep2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\addproductstep3.aspx.cs">
+      <DependentUpon>addproductstep3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\addproductstep4.aspx.cs">
+      <DependentUpon>addproductstep4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\addproductstep5.aspx.cs">
+      <DependentUpon>addproductstep5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\AllAuctions.aspx.cs">
+      <DependentUpon>AllAuctions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\alljobs.aspx.cs">
+      <DependentUpon>alljobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\allproducts.aspx.cs">
+      <DependentUpon>allproducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\BestSellingProducts.aspx.cs">
+      <DependentUpon>BestSellingProducts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\BidsShow.aspx.cs">
+      <DependentUpon>BidsShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\CommisssionStatus.aspx.cs">
+      <DependentUpon>CommisssionStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\jobs.aspx.cs">
+      <DependentUpon>jobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\moreimages.aspx.cs">
+      <DependentUpon>moreimages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\Myorders.aspx.cs">
+      <DependentUpon>Myorders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\ProductConfirmation.aspx.cs">
+      <DependentUpon>ProductConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\viewprofile.aspx.cs">
+      <DependentUpon>viewprofile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="seller\Withdraw.aspx.cs">
+      <DependentUpon>Withdraw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <Compile Include="seller\WithdrawSuccess.aspx.cs">
+      <DependentUpon>WithdrawSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <None Include="ucproduct\Auction.ascx.cs">
+      <DependentUpon>Auction.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="ucproduct\catalog.ascx.cs">
+      <DependentUpon>catalog.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="ucproduct\images.ascx.cs">
+      <DependentUpon>images.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="ucproduct\productfeature.ascx.cs">
+      <DependentUpon>productfeature.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="ucproduct\video.ascx.cs">
+      <DependentUpon>video.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </None>
     <Compile Include="usercontrol\NewestGoods.ascx.designer.cs">
