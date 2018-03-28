@@ -99,7 +99,18 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 
 	private void RotateImage(object sender, string imageUrl, RotateFlipType rotationType)
 	{
-		string path = Server.MapPath(imageUrl);
+		if (imageUrl.Contains("?"))
+		{
+			imageUrl = imageUrl.Substring(0, imageUrl.IndexOf("?"));
+		}
+
+		string path = string.Empty;
+		List<string> pathItems = imageUrl.Split('?').ToList();
+		if (pathItems.Count > 0)
+		{
+			path = Server.MapPath(pathItems[0]);
+		}
+
 		System.Drawing.Image i = System.Drawing.Image.FromFile(path);
 		i.RotateFlip(rotationType);
 		i.Save(path);
@@ -109,6 +120,7 @@ public partial class ucproduct_images : System.Web.UI.UserControl
 		{
 			image.Attributes.Add("ImageUrl", path);
 		}
+		imageUrl = imageUrl + "?" + DateTime.Now.Millisecond.ToString();
 	}
 
 	protected void lnkResize_Click(object sender, EventArgs e)
