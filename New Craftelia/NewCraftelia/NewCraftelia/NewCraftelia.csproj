@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Admin\product-setup\allproducts.aspx" />
     <Content Include="seller\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -230,6 +231,10 @@
     </None>
     <None Include="seller\Withdraw.aspx.cs">
       <DependentUpon>Withdraw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </None>
+    <None Include="Admin\product-setup\allproducts.aspx.cs">
+      <DependentUpon>allproducts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </None>
     <Compile Include="seller\WithdrawSuccess.aspx.cs">
