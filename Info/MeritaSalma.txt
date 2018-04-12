@@ -7,14 +7,21 @@ user: Crafteliauk@gmail.com
 pass: craftelia2018
 
 https://craftelia.co.uk/
-User: dragangojkovoic84@gmail.com
+User: dragangojkovic84@gmail.com
 Pass: Craftelia2018
+
+user: admin
+pass: Skyrocket-123 (Craftelia2020)
+
+https://craftelia.co.uk/Account/Manage
 
 Filezilla:
 host: ftp.smarterasp.net
 port: 21
 user: dragangojkovic
 pass: Test123!
+
+u
 
 Hi Merita,
 here are my findings:
@@ -56,3 +63,74 @@ Summary:
 items: 1-3: 6h x $25 = $150
 
 items: 4-6: 4h
+
+PROMENJENI Fajlovi:
+Default.aspx
+usercontrol/home11nov2017.ascx
+usercontrol/home11nov2017.ascx.cs
+usercontrol/newestgoods.ascx
+usercontrol/newestgoods.ascx.cs
+usercontrol/ShowForGifts.ascx.cs
+usercontrol/ShowForGifts.ascx
+ucproduct/images.ascx
+ucproduct/images.ascx.cs
+ucproduct/productfeature.ascx
+ucproduct/productfeature.ascx.cs
+
+
+
+
+===================================================================
+3-apr-2018:
+
+I checked changes.I like it.
+Only featured product section not working properly.
+This section show latest products but not featured.
+I would like that I can make in my admin role the best products for featured product and 
+when customer see my page their can see in featured section only the most appealing product.
+I choose 9 the best products for featured but website don't show in this section.
+How much You will ask money for this issue fixing?
+My admin log in in craftelia is :admin and password is Skyrocket-123(with capital S).
+Can You change for me password in admin access-I would like password :Craftelia2020 ,
+but I am scary to change myself.How much You will ask for all job?
+
+===================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
